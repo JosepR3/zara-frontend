@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, React } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import "./utils/scss/index.scss";
+import * as ROUTES from "./routes";
+
+// PAGES
+import {Home} from "./pages/home";
+import {Podcast} from "./pages/podcast";
+import {Episode} from "./pages/episode";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.PODCAST} element={<Podcast />} />
+        <Route path={ROUTES.PODCAST + ROUTES.EPISODE} element={<Episode />} />
+      </Routes>
+    </>
   );
 }
 
